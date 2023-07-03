@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 /**
  * 
  * NewtonGregory
@@ -10,6 +8,7 @@
  * <point>: double, ponto a ser interpolado (E)
  * 
 */
+
 double NewtonGregory(int n, double x[], double y[], double point) {
 
     double result = 0;
