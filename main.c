@@ -239,23 +239,23 @@ double Newton(int n, tabela points, double point) {
     double res = 0;
     double aux;
 
-    tabela dif_div;
+    double dif_div[n][n];
     memset(dif_div, 0, sizeof(dif_div));
 
-    for (int i = 0; i < n; i++) 
-        dif_div[i][0] = points[i][1];
-    //
+    for (int i = 0; i < n; i++) {
+        dif_div[i][0] = points[1][i];
+    }
 
     for (int j = 1; j < n; j++) {
         for (int i = 0; i < n - j; i++) 
-            dif_div[i][j] = (dif_div[i + 1][j - 1] - dif_div[i][j - 1]) / (points[i + j][0] - points[i][0]);
+            dif_div[i][j] = (dif_div[i + 1][j - 1] - dif_div[i][j - 1]) / (points[0][i + j] - points[0][i]);
         //
     }
 
     for (int i = 0; i < n; i++) {
         aux = dif_div[0][i];
         for (int j = 0; j < i; j++) 
-            aux *= (point - points[j][0]);
+            aux *= (point - points[0][j]);
         //
         res += aux;
     }
@@ -278,10 +278,11 @@ double NewtonGregory(int n, tabela points, double point) {
 
     double result = 0;
     double dif_div[n][n];
+
     memset(dif_div, 0, sizeof(dif_div));
 
     for (int i = 0; i < n; i++)
-        dif_div[i][0] = points[i][1];
+        dif_div[i][0] = points[1][i];
     //
 
     for (int j = 1; j < n; j++) {
@@ -290,10 +291,10 @@ double NewtonGregory(int n, tabela points, double point) {
         }
     }
 
-    double h = points[1][0] - points[0][0];
+    double h = points[0][1] - points[0][0];
     double u = (point - points[0][0]) / h;
     double term = 1;
-    result += points[0][1];
+    result += points[1][0];
 
     for (int i = 1; i < n; i++) {
         term *= (u - i + 1) / i;
