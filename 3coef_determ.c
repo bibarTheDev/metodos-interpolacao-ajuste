@@ -8,8 +8,7 @@
  * 
 */
 
-double CoefDeterminacao ( int npts, double pts[MTXSIZE], double y[MTXSIZE] ) {
-    
+double CoefDeterminacao(int npts, double pts[2][MTXSIZE], double y[MTXSIZE]) {
     double r;
     double sumY = 0, sumYQ = 0, sumErrQ = 0;
 
@@ -19,7 +18,6 @@ double CoefDeterminacao ( int npts, double pts[MTXSIZE], double y[MTXSIZE] ) {
         sumErrQ += pow(pts[1][i] - y[i], 2);
     }
     
-    printf("%lf | %lf | %lf\n", sumY, sumYQ, sumErrQ);
     r = 1 - ((npts * sumErrQ) / ((npts * sumYQ) - pow(sumY, 2)));
     return r;
 
