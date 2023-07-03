@@ -9,7 +9,7 @@
  *  
 */
 
-float Newton (int n, double x[], double y[], double point) {
+double Newton (int n, double x[], double y[], double point) {
 
     double res = 0; // Valor do polinômio interpolado
     double aux;
