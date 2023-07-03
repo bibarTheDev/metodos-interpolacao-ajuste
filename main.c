@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 #include <string.h>
 #include <math.h>
 
@@ -651,7 +652,7 @@ int main() {
         else{
             num = 0;
             printf("\n\tPressione qualquer tecla para continuar...\t");
-            scanf("%d", &input);
+            getch();
             cls();
         }
         
